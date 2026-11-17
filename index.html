@@ -3,143 +3,269 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="提供期貨、選擇權與海外期貨開戶及交易服務資訊。">
-  <title>期貨交易服務｜</title>
+  <meta name="description" content="分享台美股與全球市場金融資訊、新聞圖卡及市場觀察。">
+  <title>市場觀察室｜金融資訊分享</title>
+
   <style>
+    :root {
+      --page: #f5f0e6;
+      --surface: #fffdf8;
+      --surface-soft: #eee6d8;
+      --ink: #3d352c;
+      --muted: #837665;
+      --accent: #9a6840;
+      --line: #e5dac9;
+      --shadow: 0 12px 32px rgba(70, 55, 36, 0.08);
+    }
+
     * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
-      color: #243044;
-      background: #f5f7fb;
+      color: var(--ink);
+      background: var(--page);
       font-family: "Noto Sans TC", "Microsoft JhengHei", sans-serif;
-      line-height: 1.7;
+      line-height: 1.75;
     }
+
     header {
-      padding: 18px 7%;
-      background: #102746;
-      color: white;
+      padding: 18px 6%;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 253, 248, 0.92);
     }
+
     nav {
+      max-width: 1120px;
+      margin: auto;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 16px;
-      max-width: 1100px;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      color: var(--ink);
+      font-size: 19px;
+      font-weight: 800;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+
+    nav a:last-child {
+      color: var(--accent);
+      font-size: 14px;
+      text-decoration: none;
+    }
+
+    .hero {
+      padding: 72px 6% 54px;
+      background:
+        radial-gradient(ellipse at 85% 15%, #eadcc5 0, transparent 35%),
+        var(--page);
+    }
+
+    .hero-inner, main, footer {
+      max-width: 1120px;
       margin: auto;
     }
-    nav a { color: white; text-decoration: none; margin-left: 20px; }
-    .brand { font-size: 20px; font-weight: 700; }
-    .hero {
-      padding: 86px 7%;
-      color: white;
-      background: linear-gradient(120deg, #102746, #176b87);
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
     }
-    .hero-inner, main, footer { max-width: 1100px; margin: auto; }
-    .hero h1 { max-width: 720px; font-size: clamp(32px, 5vw, 54px); line-height: 1.25; }
-    .hero p { max-width: 650px; color: #e2edf5; font-size: 18px; }
-    .button {
-      display: inline-block;
-      margin-top: 16px;
-      padding: 11px 22px;
-      border-radius: 8px;
-      background: #f0b44d;
-      color: #17283d;
-      text-decoration: none;
-      font-weight: 700;
+
+    h1 {
+      margin: 10px 0;
+      font-size: clamp(34px, 6vw, 58px);
+      line-height: 1.2;
+      letter-spacing: 0.03em;
     }
-    main { padding: 48px 7%; }
-    h2 { color: #102746; }
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 18px;
-      margin: 24px 0 48px;
+
+    .hero p {
+      max-width: 660px;
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-size: 17px;
     }
-    .card {
-      padding: 22px;
-      border: 1px solid #e1e7ef;
-      border-radius: 12px;
-      background: white;
+
+    main { padding: 12px 6% 64px; }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin: 18px 0 22px;
     }
-    .card h3 { margin-top: 0; color: #176b87; }
-    .notice {
-      padding: 18px 22px;
-      border-left: 4px solid #f0b44d;
-      background: #fff8e9;
-      border-radius: 6px;
+
+    h2 {
+      margin: 0;
+      font-size: 24px;
+      letter-spacing: 0.04em;
     }
-    footer {
-      padding: 28px 7%;
-      color: #657287;
+
+    .section-heading p {
+      margin: 0;
+      color: var(--muted);
       font-size: 14px;
     }
-    @media (max-width: 600px) {
-      nav { align-items: flex-start; flex-direction: column; }
-      nav a { margin: 0 14px 0 0; }
-      .hero { padding-top: 58px; padding-bottom: 58px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .card img {
+      display: block;
+      width: 100%;
+      height: auto;
+      background: var(--surface-soft);
+    }
+
+    .card-body { padding: 18px 20px 20px; }
+
+    .tag {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--surface-soft);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .card h3 {
+      margin: 10px 0 4px;
+      font-size: 19px;
+      line-height: 1.45;
+    }
+
+    .card time {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .disclaimer {
+      margin-top: 30px;
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #f0e8da;
+      color: #6f6252;
+      font-size: 14px;
+    }
+
+    footer {
+      padding: 24px 6% 34px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 720px) {
+      .hero { padding-top: 52px; }
+      .grid { grid-template-columns: 1fr; }
+      .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+      }
     }
   </style>
 </head>
+
 <body>
   <header>
     <nav>
-      <div class="brand">大昌期貨｜交易服務</div>
-      <div>
-        <a href="#services">服務項目</a>
-        <a href="#about">服務介紹</a>
-        <a href="#contact">聯絡方式</a>
-      </div>
+      <a class="brand" href="#">市場觀察室</a>
+      <a href="#articles">每日金融資訊分享</a>
     </nav>
   </header>
 
   <section class="hero">
     <div class="hero-inner">
-      <h1>掌握市場資訊，做好交易準備</h1>
-      <p>提供台指期、選擇權及海外期貨開戶與交易服務資訊，協助你了解商品、交易流程與相關風險。</p>
-      <a class="button" href="#contact">聯絡我了解更多</a>
+      <div class="eyebrow">MARKET NOTES · 市場筆記</div>
+      <h1>把市場資訊，<br>整理得更清楚。</h1>
+      <p>分享台美股、能源、匯率與企業動態的金融資訊圖卡，作為日常市場觀察與資料整理。</p>
     </div>
   </section>
 
-  <main>
-    <section id="services">
-      <h2>服務項目</h2>
-      <div class="cards">
-        <article class="card">
-          <h3>台指期貨</h3>
-          <p>提供台灣期貨商品的開戶與交易服務資訊，協助了解基本交易流程。</p>
-        </article>
-        <article class="card">
-          <h3>選擇權</h3>
-          <p>介紹選擇權商品與交易須知，依個人需求進一步了解相關服務。</p>
-        </article>
-        <article class="card">
-          <h3>海外期貨</h3>
-          <p>提供海外期貨開戶與商品資訊，實際交易時間及規格以官方公告為準。</p>
-        </article>
-      </div>
+  <main id="articles">
+    <div class="section-heading">
+      <h2>最新圖卡</h2>
+      <p>更新日期：2026 年 11 月 17 日</p>
+    </div>
+
+    <section class="grid" aria-label="金融資訊圖卡">
+      <article class="card">
+        <img
+          src="./2026-11-17_美股_AI股賣壓_費半重挫.png"
+          alt="美股 AI 股賣壓與費半重挫市場資訊圖卡"
+          loading="lazy">
+        <div class="card-body">
+          <span class="tag">美股市場</span>
+          <h3>AI 股賣壓與半導體類股回檔</h3>
+          <time datetime="2026-11-17">2026 年 11 月 17 日</time>
+        </div>
+      </article>
+
+      <article class="card">
+        <img
+          src="./2026-11-17_美股_油價走低_IEA供過於求.png"
+          alt="油價走低與 IEA 供需資訊圖卡"
+          loading="lazy">
+        <div class="card-body">
+          <span class="tag">能源市場</span>
+          <h3>油價走低與供需變化</h3>
+          <time datetime="2026-11-17">2026 年 11 月 17 日</time>
+        </div>
+      </article>
+
+      <article class="card">
+        <img
+          src="./2026-11-17_美股_美元創高_押注Fed升息.png"
+          alt="美元走勢與 Fed 利率預期資訊圖卡"
+          loading="lazy">
+        <div class="card-body">
+          <span class="tag">匯率與利率</span>
+          <h3>美元走勢與 Fed 利率預期</h3>
+          <time datetime="2026-11-17">2026 年 11 月 17 日</time>
+        </div>
+      </article>
+
+      <article class="card">
+        <img
+          src="./2026-11-17_美股_輝達董事會未考慮黃仁勳回任.png"
+          alt="輝達董事會與黃仁勳相關市場消息圖卡"
+          loading="lazy">
+        <div class="card-body">
+          <span class="tag">企業動態</span>
+          <h3>輝達董事會相關消息整理</h3>
+          <time datetime="2026-11-17">2026 年 11 月 17 日</time>
+        </div>
+      </article>
     </section>
 
-    <section id="about">
-      <h2>服務介紹</h2>
-      <p>期貨營業員，提供期貨與選擇權相關服務資訊、開戶流程說明及交易平台使用協助。歡迎透過下方聯絡方式詢問。</p>
-      <div class="notice">
-        <strong>風險提醒：</strong>
-        期貨及選擇權交易具有高風險，可能造成損失。請先充分了解商品特性與風險，並依自身財務狀況審慎評估。
-      </div>
-    </section>
-
-    <section id="contact">
-      <h2>聯絡方式</h2>
-      <p>姓名：夏偉紘</p>
-      <p>電話：0922366581</p>
-      <p>LINE ID：y645228921</p>
-      <p>Email：cat645228921</p>
-    </section>
+    <aside class="disclaimer">
+      本網站內容僅供一般金融資訊分享與參考，不構成投資建議、交易邀約或獲利保證。
+      市場資訊可能變動，請以相關機構與資料來源的正式公告為準。
+    </aside>
   </main>
 
   <footer>
-    <p>本網站提供一般服務與市場資訊，不構成投資建議或獲利保證。商品資訊及服務內容請以期貨商正式公告為準。</p>
-    
+    © 2026 市場觀察室｜金融資訊分享
   </footer>
 </body>
 </html>
